@@ -1,0 +1,146 @@
+aid: bny-mellon
+url: https://raw.githubusercontent.com/api-evangelist/bny-mellon/refs/heads/main/apis.yml
+name: BNY Mellon
+kind: company
+description: >-
+  BNY Mellon (legal parent The Bank of New York Mellon Corporation, rebranded to
+  "BNY" in 2024) is a US money-center bank and the world's largest custodian,
+  overseeing roughly $50 trillion in assets under custody and/or administration.
+  Its principal banking subsidiary, The Bank of New York Mellon, is a
+  nationally chartered bank (OCC-supervised) headquartered in New York City,
+  operating across Securities Services, Market & Wealth Services, and Investment
+  & Wealth Management with brand families including Pershing, Eagle Investment
+  Systems, and BNY Markets. On open finance, BNY runs a genuine first-party
+  developer program — the BNY Developer Marketplace at developer.bny.com
+  (formerly marketplace.bnymellon.com) — publishing Treasury Services (payments,
+  liquidity, cash management, trade finance, FX), Asset Servicing, Markets, and
+  Pershing API families to corporate, fintech, and financial-institution
+  clients. Registration and full API reference are gated behind Nexen single
+  sign-on, and no OpenAPI/Swagger is publicly downloadable. BNY also ships a
+  public, smart-contract-only "Data On-Chain" product that broadcasts fund
+  accounting data to Ethereum. Consumer/business-banking account data is reached
+  primarily through aggregators such as Plaid rather than a first-party
+  consumer data API. No FDX participation or CFPB 1033 posture is publicly
+  documented.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Financial Services
+- Banking
+- United States
+- Custody Bank
+- Treasury Services
+- Payments
+- Digital Assets
+- Open Finance
+created: '2026-07-23'
+modified: '2026-07-23'
+specificationVersion: '0.19'
+apis:
+- aid: bny-mellon:treasury-services-api
+  name: BNY Treasury Services API
+  description: >-
+    Treasury Services API family covering payments (USD clearing, global ACH,
+    RTP, wires, Pay by Bank), liquidity, cash management, trade finance, and FX,
+    exposed to corporate and financial-institution clients. Full API reference,
+    specs, and sandbox are gated behind Nexen single sign-on; no OpenAPI is
+    publicly downloadable.
+  humanURL: https://marketplace.bnymellon.com/treasury/api-library/treasury-services-apis
+  tags:
+  - Payments
+  - Treasury
+  - Liquidity
+  - Trade Finance
+  - FX
+  properties:
+  - type: Documentation
+    url: https://marketplace.bnymellon.com/treasury/api-library/treasury-services-apis
+  - type: APIReference
+    url: https://developer.bny.com/app/open/apis
+- aid: bny-mellon:asset-servicing-api
+  name: BNY Asset Servicing API
+  description: >-
+    Asset Servicing API family for custody, fund accounting, middle-office, and
+    transfer-agency operations, published through the BNY Developer Marketplace.
+    API reference is gated behind Nexen single sign-on; no OpenAPI is publicly
+    downloadable.
+  humanURL: https://developer.bny.com/app/open/apis
+  tags:
+  - Custody
+  - Asset Servicing
+  - Fund Accounting
+  properties:
+  - type: Documentation
+    url: https://developer.bny.com/app/open/apis
+- aid: bny-mellon:markets-api
+  name: BNY Markets API
+  description: >-
+    Markets API family spanning FX, securities finance, fixed income, and
+    equities, published through the BNY Developer Marketplace. API reference is
+    gated behind Nexen single sign-on; no OpenAPI is publicly downloadable.
+  humanURL: https://developer.bny.com/app/open/apis
+  tags:
+  - Markets
+  - FX
+  - Securities Finance
+  properties:
+  - type: Documentation
+    url: https://developer.bny.com/app/open/apis
+- aid: bny-mellon:pershing-api
+  name: BNY Pershing API
+  description: >-
+    Pershing API family for clearing, custody, and the NetX360+ / Wove wealth
+    platforms serving broker-dealers and RIAs, published through the BNY
+    Developer Marketplace. API reference is gated behind Nexen single sign-on;
+    no OpenAPI is publicly downloadable.
+  humanURL: https://developer.bny.com/app/open/apis
+  tags:
+  - Pershing
+  - Clearing
+  - Wealth
+  properties:
+  - type: Documentation
+    url: https://developer.bny.com/app/open/apis
+- aid: bny-mellon:data-on-chain
+  name: BNY Data On-Chain
+  description: >-
+    Public, smart-contract-only product that broadcasts BNY-attested fund
+    accounting data to public blockchains for on-chain and off-chain consumers
+    (first implementation is the BlackRock USD Digital Liquidity BUIDL Fund).
+    Consumers read data via a Solidity interface (IBNYDataConsumerV2) using a
+    proxy-upgrade pattern; there is no OpenAPI/HTTP surface. Deployed on Ethereum
+    Mainnet (0x7B0eC8D1D1254358A77f107118e96885EdDCEb16) and Sepolia testnet
+    (0xCC75D07cBC86f306A033af29508a1b98E2178264).
+  humanURL: https://github.com/bnymellon/bny-data-on-chain
+  tags:
+  - Digital Assets
+  - Blockchain
+  - Ethereum
+  - Smart Contracts
+  - Tokenization
+  properties:
+  - type: Documentation
+    url: https://github.com/bnymellon/bny-data-on-chain
+  - type: SourceCode
+    url: https://github.com/bnymellon/bny-data-on-chain
+common:
+- type: Website
+  url: https://www.bny.com
+- type: DeveloperPortal
+  url: https://developer.bny.com
+- type: Documentation
+  url: https://developer.bny.com/app/open/apis
+- type: GitHubOrganization
+  url: https://github.com/bnymellon
+- type: LinkedIn
+  url: https://www.linkedin.com/company/the-bank-of-new-york-mellon-corporation
+- type: Support
+  url: https://developer.bny.com/app/open/support
+- type: TermsOfService
+  url: https://www.bny.com/corporate/global/en/terms-of-use.html
+- type: PrivacyPolicy
+  url: https://www.bny.com/corporate/global/en/data-privacy.html
+- type: About
+  url: https://www.bny.com/corporate/global/en/about-us.html
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,92 @@
+aid: bny-mellon
+name: BNY Mellon
+review:
+  question: Does BNY Mellon expose a first-party public developer API with downloadable OpenAPI, and what is its US open-finance posture?
+  answer: partial
+  date: '2026-07-23'
+  reviewer: API Evangelist
+findings:
+  summary: >-
+    BNY Mellon runs a genuine first-party developer program, the BNY Developer
+    Marketplace at https://developer.bny.com (HTTP 200 confirmed; formerly
+    marketplace.bnymellon.com, also HTTP 200). It publishes four enterprise API
+    families to corporate, fintech, and financial-institution clients: Treasury
+    Services (payments — USD clearing, global ACH, RTP, wires, Pay by Bank —
+    plus liquidity, cash management, trade finance, FX), Asset Servicing
+    (custody, fund accounting, middle-office, transfer agency), Markets (FX,
+    securities finance, fixed income, equities), and Pershing (clearing,
+    custody, NetX360+ / Wove). However, registration and the full API reference
+    are gated behind Nexen single sign-on: probing the portal's catalog endpoint
+    (https://developer.bny.com/api/open/apis) 302-redirects to
+    nexen.bny.com/login. No OpenAPI/Swagger is publicly downloadable, so none
+    was harvested. The one genuinely public developer surface is BNY Data
+    On-Chain — a smart-contract-only product (public repo
+    github.com/bnymellon/bny-data-on-chain) that broadcasts BNY-attested fund
+    accounting data to Ethereum via a Solidity interface (IBNYDataConsumerV2),
+    with published mainnet and Sepolia contract addresses and no HTTP/OpenAPI
+    surface. On consumer open finance, BNY publishes no documented FDX
+    participation and no stated CFPB Section 1033 posture; business-banking
+    account data is reached primarily through aggregators such as Plaid rather
+    than a first-party consumer data API.
+  posture:
+    firstPartyDeveloperPortal: true
+    developerPortalURL: https://developer.bny.com
+    developerPortalStatus: 200
+    downloadableOpenAPI: false
+    specProvenance: none (API reference gated behind Nexen single sign-on)
+    authModel: Nexen single sign-on (OAuth2/OIDC-style enterprise SSO) for gated API families; on-chain product is permissionless smart-contract reads
+    fdxParticipant: false
+    section1033Posture: none documented
+    aggregatorAccess: Plaid (business-banking consumer data)
+    publicOnChainProduct: true
+  transports:
+  - protocol: REST
+    scheme: https
+    note: Treasury Services, Asset Servicing, Markets, and Pershing API families exposed via the BNY Developer Marketplace; endpoints and specs gated behind Nexen SSO.
+    documented: true
+    publiclyAccessible: false
+  - protocol: EVM
+    scheme: smart-contract
+    note: BNY Data On-Chain exposes a Solidity consumer interface (IBNYDataConsumerV2) on Ethereum Mainnet and Sepolia; read-only on-chain data, no HTTP API.
+    documented: true
+    publiclyAccessible: true
+  probes:
+  - url: https://developer.bny.com
+    status: 200
+    note: BNY Developer Marketplace home (redirects to /app/).
+  - url: https://developer.bny.com/app/open/apis
+    status: 200
+    note: Public marketplace catalog route (JavaScript SPA).
+  - url: https://developer.bny.com/api/open/apis
+    status: 302
+    note: Catalog data endpoint redirects to nexen.bny.com/login — API reference is SSO-gated.
+  - url: https://marketplace.bnymellon.com/treasury/api-library/treasury-services-apis
+    status: 200
+    note: Treasury Services API library (public product/use-case docs).
+  - url: https://github.com/bnymellon/bny-data-on-chain
+    status: 200
+    note: Public Data On-Chain user guide + Solidity consumer interface.
+  - url: https://github.com/bnymellon
+    status: 200
+    note: Official BNY GitHub organization (4 public repos incl. bny-data-on-chain).
+sources:
+- url: https://developer.bny.com
+  type: DeveloperPortal
+  note: BNY Developer Marketplace; four enterprise API families gated behind Nexen SSO.
+- url: https://marketplace.bnymellon.com/treasury/api-library/treasury-services-apis
+  type: Documentation
+  note: Treasury Services API library — payments, liquidity, cash management, trade finance, FX.
+- url: https://github.com/bnymellon/bny-data-on-chain
+  type: SourceCode
+  note: Public smart-contract product; IBNYDataConsumerV2; Ethereum mainnet + Sepolia contract addresses.
+- url: https://www.openbankingtracker.com/provider/bny-mellon-business-banking
+  type: Reference
+  note: Notes limited direct consumer API availability; business-banking access via Plaid aggregator.
+actions:
+  openapiHarvested: false
+  reason: >-
+    No publicly downloadable OpenAPI/Swagger exists — BNY's API reference and
+    specifications are gated behind Nexen single sign-on. The only public
+    developer artifact is the on-chain Data On-Chain smart-contract interface,
+    which has no HTTP/OpenAPI surface. Nothing was fabricated; only verified
+    public pages and probe statuses were recorded.
