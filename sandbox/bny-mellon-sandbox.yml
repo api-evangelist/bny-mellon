@@ -1,0 +1,38 @@
+generated: '2026-07-23'
+method: searched
+source: https://marketplace.bnymellon.com/treasury/api-library/environments
+docs: https://developer.bny.com/app/open/apis
+summary: >-
+  BNY publishes non-production testing environments for its Developer
+  Marketplace APIs. Many Treasury Services and other API families ship with a
+  QA / testing environment seeded with realistic test data so integrators can
+  evaluate, prototype, and build before production. Access to both QA and
+  Production credentials is gated behind the BNY onboarding process and Nexen
+  single sign-on: developers subscribe to an API in the Marketplace, obtain
+  credentials for the QA and Production environments, and must complete BNY
+  onboarding for production access. No test card numbers, magic test
+  identifiers, or fixed sandbox tokens are published on the public surface —
+  those values live behind the authenticated Marketplace.
+environments:
+  - name: QA / Testing
+    purpose: Non-production evaluation and integration testing
+    test_data: >-
+      Many APIs come with testing environments seeded with realistic test data.
+    credentials: Obtained by subscribing to an API and logging into the BNY Marketplace.
+    gated: true
+  - name: Production
+    purpose: Live integration
+    credentials: Requires completing the BNY onboarding/approval process.
+    gated: true
+access:
+  registration: https://developer.bny.com/register
+  login: https://developer.bny.com/login
+  onboarding_note: >-
+    Production access to the API Marketplace and the APIs requires completing
+    the BNY onboarding process; QA and Production credentials are issued per
+    subscribed API.
+notes: >-
+  Published test values (identifiers, accounts, fixtures) are not exposed on the
+  anonymous public surface — the API reference, specs, and sandbox are behind
+  Nexen SSO. This artifact records the documented environment structure only;
+  no test values were fabricated.

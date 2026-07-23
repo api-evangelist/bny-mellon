@@ -1,0 +1,33 @@
+generated: '2026-07-23'
+method: probed
+source: live probes of /.well-known/* on BNY hosts
+summary: >-
+  No public /.well-known/ discovery documents are served by any BNY host. The
+  developer.bny.com portal returns HTTP 500 for every /.well-known/ path (the
+  SPA server errors rather than serving a document), www.bny.com returns 404,
+  and marketplace.bnymellon.com returns 403 (Access Denied). No security.txt,
+  OIDC discovery, OAuth authorization-server/protected-resource metadata, or
+  api-catalog is exposed anonymously — consistent with the API program being
+  gated behind Nexen single sign-on. No 200 document was retrieved, so no
+  WellKnown/SecurityTxt pointer is wired.
+hosts:
+  - host: https://developer.bny.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 500
+      - path: /.well-known/openid-configuration
+        status: 500
+      - path: /.well-known/oauth-authorization-server
+        status: 500
+      - path: /.well-known/oauth-protected-resource
+        status: 500
+      - path: /.well-known/api-catalog
+        status: 500
+  - host: https://www.bny.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+  - host: https://marketplace.bnymellon.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
