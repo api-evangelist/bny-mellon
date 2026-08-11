@@ -125,6 +125,8 @@ apis:
   - type: SourceCode
     url: https://github.com/bnymellon/bny-data-on-chain
 common:
+- type: TrustCenter
+  url: https://www.bny.com/corporate/global/en/about-us/trust-center.html
 - type: DomainSecurity
   url: security/bny-mellon-domain-security.yml
 - type: Website
