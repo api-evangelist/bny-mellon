@@ -36,6 +36,15 @@ deliveryModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
+- Financial-Services
+- Banking
+- United States
+- Custody Bank
+- Treasury Services
+- Payments
+- Digital Assets
+- Open Finance
+tags_raw:
 - Financial Services
 - Banking
 - United States
