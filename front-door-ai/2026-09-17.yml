@@ -1,0 +1,26 @@
+# Front Door AI Index — bny-mellon — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: bny-mellon
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.bny.com
+  final_host: www.bny.com
+  ownership: own
+  owner: bny-mellon
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 6
+  host_score: 6
+  density: 5.07
+  words: 1183
+  tiers:
+    agentic: 1
+    core: 5
+    model: 0
+  ambiguous: 0
+  top_terms:
+    AI: 5
+    agentic: 1
