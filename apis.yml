@@ -23,16 +23,19 @@ description: >-
   consumer data API. No FDX participation or CFPB 1033 posture is publicly
   documented.
 deliveryModel:
-  model: unknown
+  model: saas
+  license_evidence:
+    not_product:
+    - bnymellon/bny-data-on-chain
   open_source: unknown
   commercial: true
   callable_host: false
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: unknown
@@ -49,7 +52,7 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
-- Financial-Services
+- Financial Services
 - Banking
 - United States
 - Custody Bank
@@ -66,6 +69,7 @@ tags_raw:
 - Payments
 - Digital Assets
 - Open Finance
+- Financial-Services
 created: '2026-07-23'
 modified: '2026-07-24'
 specificationVersion: '0.23'
