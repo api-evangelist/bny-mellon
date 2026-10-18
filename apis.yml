@@ -88,6 +88,12 @@ apis:
   - Treasury
   - Liquidity
   - Trade Finance
+  - Foreign Exchange
+  tags_raw:
+  - Payments
+  - Treasury
+  - Liquidity
+  - Trade Finance
   - FX
   properties:
   - type: Documentation
@@ -119,6 +125,10 @@ apis:
     gated behind Nexen single sign-on; no OpenAPI is publicly downloadable.
   humanURL: https://developer.bny.com/app/open/apis
   tags:
+  - Markets
+  - Foreign Exchange
+  - Securities Finance
+  tags_raw:
   - Markets
   - FX
   - Securities Finance
