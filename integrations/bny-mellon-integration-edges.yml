@@ -14,6 +14,10 @@ checked:
 - https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
 - https://www.wealthbox.com/wp-json/wp/v2/integrations?per_page=100&page=1
 - https://zapier.com/apps/bny-mellon/integrations
+- https://api.fdic.gov/banks/history
+- https://api.fdic.gov/banks/institutions?filters=ACTIVE:1&fields=NAME,WEBADDR,CERT,ASSET,STALP
+- https://www.ncua.gov/files/publications/analysis/call-report-data-2025-06.zip
+- https://www.ncua.gov/files/publications/analysis/federally-insured-credit-union-list-june-2025.zip
 summary: null
 marketplace_apps: []
 edges:
@@ -91,4 +95,65 @@ edges:
     - BNY MELLON ETF INVESTMENT ADVISER, LLC (CRD 306148)
   detected_by: sweep-asset-management.py
   first_seen: '2026-10-18'
+- partner_name: FDIC BankFind insured institutions
+  partner: null
+  partner_match: register
+  type: register
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://api.fdic.gov/banks/institutions?filters=ACTIVE:1&fields=NAME,WEBADDR,CERT,ASSET,STALP
+  category: US FDIC-insured depository institution charter
+  contract_reference:
+    register: FDIC BankFind insured institutions
+    spec_file: null
+    standard: null
+    role: insured-depository-institution
+    registrations:
+    - registered_name: The Bank of New York Mellon Trust Company, National Association
+      register_status: active
+      register_country: US
+      register_id: '23472'
+      matched_domain: bny.com
+      matched_by: domain+local-verified
+      licences:
+      - FDIC-insured institution (CERT 23472)
+      evidence_url: https://banks.data.fdic.gov/bankfind-suite/bankfind/details/23472
+      state: CA
+    - registered_name: BNY Mellon Trust of Delaware
+      register_status: active
+      register_country: US
+      register_id: '24867'
+      matched_domain: bny.com
+      matched_by: domain
+      licences:
+      - FDIC-insured institution (CERT 24867)
+      evidence_url: https://banks.data.fdic.gov/bankfind-suite/bankfind/details/24867
+      state: DE
+    - registered_name: The Bank of New York Mellon
+      register_status: active
+      register_country: US
+      register_id: '639'
+      matched_domain: bny.com
+      matched_by: domain+local-verified
+      licences:
+      - FDIC-insured institution (CERT 639)
+      evidence_url: https://banks.data.fdic.gov/bankfind-suite/bankfind/details/639
+      state: NY
+    - registered_name: BNY Mellon, National Association
+      register_status: active
+      register_country: US
+      register_id: '7946'
+      matched_domain: bny.com
+      matched_by: domain
+      licences:
+      - FDIC-insured institution (CERT 7946)
+      evidence_url: https://banks.data.fdic.gov/bankfind-suite/bankfind/details/7946
+      state: PA
+    signal_note: 'participation only: a federal deposit-insurance charter on a regulator register; no API conformance
+      is published by this register'
+    detected_by: sweep-us-bank-credit-union-registers.py
+    detected: '2026-10-22'
+  detected_by: sweep-us-bank-credit-union-registers.py
+  first_seen: '2026-10-22'
 templates: []

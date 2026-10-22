@@ -75,3 +75,64 @@
     - BNY MELLON ETF INVESTMENT ADVISER, LLC (CRD 306148)
   status: not-a-workflow
   arazzo: null
+- slug: bny-mellon-fdic-bankfind-insured-institutions
+  label: FDIC BankFind insured institutions
+  partner_name: FDIC BankFind insured institutions
+  category: US FDIC-insured depository institution charter
+  type: register
+  channel: regulator-register
+  evidence: https://api.fdic.gov/banks/institutions?filters=ACTIVE:1&fields=NAME,WEBADDR,CERT,ASSET,STALP
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: FDIC BankFind insured institutions
+    spec_file: null
+    standard: null
+    role: insured-depository-institution
+    registrations:
+    - registered_name: The Bank of New York Mellon Trust Company, National Association
+      register_status: active
+      register_country: US
+      register_id: '23472'
+      matched_domain: bny.com
+      matched_by: domain+local-verified
+      licences:
+      - FDIC-insured institution (CERT 23472)
+      evidence_url: https://banks.data.fdic.gov/bankfind-suite/bankfind/details/23472
+      state: CA
+    - registered_name: BNY Mellon Trust of Delaware
+      register_status: active
+      register_country: US
+      register_id: '24867'
+      matched_domain: bny.com
+      matched_by: domain
+      licences:
+      - FDIC-insured institution (CERT 24867)
+      evidence_url: https://banks.data.fdic.gov/bankfind-suite/bankfind/details/24867
+      state: DE
+    - registered_name: The Bank of New York Mellon
+      register_status: active
+      register_country: US
+      register_id: '639'
+      matched_domain: bny.com
+      matched_by: domain+local-verified
+      licences:
+      - FDIC-insured institution (CERT 639)
+      evidence_url: https://banks.data.fdic.gov/bankfind-suite/bankfind/details/639
+      state: NY
+    - registered_name: BNY Mellon, National Association
+      register_status: active
+      register_country: US
+      register_id: '7946'
+      matched_domain: bny.com
+      matched_by: domain
+      licences:
+      - FDIC-insured institution (CERT 7946)
+      evidence_url: https://banks.data.fdic.gov/bankfind-suite/bankfind/details/7946
+      state: PA
+    signal_note: 'participation only: a federal deposit-insurance charter on a regulator register; no API conformance
+      is published by this register'
+    detected_by: sweep-us-bank-credit-union-registers.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
